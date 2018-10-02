@@ -193,7 +193,10 @@ border: 0px solid #000000;
                                 <h5>Productos Adquiridos</h5>
                                 <div class="divider"></div>
                                 <div class="table-header card" style="margin-top: 30px;">
-                                        <span class="table-title">Lista De Pedidos Adquiridos</span>
+                                        <span class="table-title">Lista De Pedidos Adquiridos
+                                              <a class="waves-effect btn modal-trigger" href="#modal1" id="nuevoo"><i class="material-icons white-text">add_circle</i>
+                                              </a>
+                                        </span>
                                         <div class="actions">
                                             <a href="#" class="waver-effect btn-flat nopadding"> <i class="large material-icons">local_printshop</i></a>
                                             <a href="#" class="waver-effect btn-flat nopadding"> <i class="large material-icons">description</i></a>
@@ -235,9 +238,77 @@ border: 0px solid #000000;
                     </div>
                 </div>
             </section>
-
         </div>
-
     </div>
+    <div id="modal1" class="modal" style="height: 500px;">
+        <div class="modal-content">
+            <h5 style="font-weight:500;">Productos</h5>
+                <p style="color: dimgray;font-size: 13px;margin-top: -3px;">Puede buscar los productos solicitados.No olvide poner la cantidad del producto solicitado</p>
+                <div class="divider"></div>
+                <div class="row" style="margin-top: 20px;">
+                <div class="col s8">
+                    <p style="color: #939DDE;font-weight: 550;">*Indique el tipo de producto que desea solicitar</p>
+                </div>
+                    <div class="col s4">
+                        <!-- Switch -->
+                            <div class="switch" style="margin-top: 15px;">
+                                <label>
+                                    Otros
+                                    <input type="checkbox">
+                                    <span class="lever"></span>
+                                    Libros
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input placeholder="" id="buscarP" type="text" class="validate">
+                            <label for="buscarP">Buscar</label>
+                        </div>
+                        <div class="input-field col s2">
+                            <input placeholder="" id="cantidad" type="text" class="validate">
+                            <label for="buscarP">Cantidad</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="centered">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>F-23123</td>
+                                    <td>Fe de Jesus</td>
+                                    <td><a class="btn" onclick="solicitar()">Solicitar Producto</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    <!-- linkeos de .js -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../resources/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.modal-trigger').leanModal();
+            $('select').material_select();
+        });
+
+
+        function solicitar() {
+
+            Materialize.toast('Producto pasado a Lista!', 4000)
+            $('#modal1').modal('close');
+        }
+    </script>
+    <!-- fin del linkeo -->
 </body>
 </html>
